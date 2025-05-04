@@ -57,7 +57,7 @@ class graphTraversal{
             s.pop();
             cout<<v<<" ";
             for(int i = n ; i >= 0 ; i--){
-                if(adjmat[startvertex][i] == 1 && !visiteddfs[i]){
+                if(adjmat[v][i] == 1 && !visiteddfs[i]){
                     s.push(i);
                     visiteddfs[i] = true;
                 }
