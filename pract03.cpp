@@ -176,6 +176,32 @@ int search(Node *root, int value){
         }
     }
 }
+
+void display(node *ptr, int level){
+    if (ptr != NULL) {
+        display(ptr->right, level + 1);
+        cout << endl;
+        for (int i = 0; i < level; i++)
+            cout << "       ";
+        cout << ptr->data;
+        display(ptr->left, level + 1);
+    }
+}
+
+node *deletenode(node *root, int key){
+    if (!root) return root;
+    if (key < root->data) root->left = deleteNode(root->left, key);
+    else if (key > root->data) root->right = deleteNode(root->right, key);
+    else {
+        if (!root->left) return root->right;
+        else if (!root->right) return root->left;
+        root->data = min(root->right);
+        root->right = deleteNode(root->right, root->info);
+    }
+    return root;
+}
+
+
 };
 
 
@@ -183,6 +209,8 @@ int main(){
     Traversal t;
     Node *root = nullptr;
     Node *another = nullptr;
+    Node *temp = nullptr;
+    int key;
     int values[] = {21,27,25,1,28,76,11};
     for(int value : values){
         root = t.insertNode(root,value);
@@ -201,6 +229,8 @@ int main(){
         cout<<"8.Postorder Traversal.\n";
         cout<<"9.BFS.\n";
         cout<<"10.Exit.\n";
+        cout<<"11.Display.\n";
+        cout<<"12.Delete a node.\n";
         cin>>ch;
 
         switch(ch){
@@ -269,6 +299,20 @@ int main(){
                 cout<<"Thank You !\n";
                 break;
 
+            case 11 :
+                cout<<"BST Traversal.\n";
+                t.display();
+                break;
+
+            case 12 :
+                {
+                    cout<<"Enter a Node to delete :";
+                    cin>>key;
+                cout<<"Deleting a node.\n";
+                temp = t.deletenode(root,key);
+                    break;
+                }
+            
             default : 
             cout<<"Invalid Choice, Try Again !!!\n";
 
