@@ -64,6 +64,7 @@ class HeapArrangement{
                    cout<<" "<<array[i];i++;
                 cout<<endl<<endl;
             }
+        }
 };
 
 int main(){
