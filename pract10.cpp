@@ -14,8 +14,6 @@ class HeapArrangement{
     }
         void heapShell(int total){
             int i,j,temp;
-            char ch;
-            do{
             for(i = 1; i <= total; i++){
                 cout<<"Enter the marks of "<<i<<" :";
                 cin>>array[i];
@@ -31,9 +29,6 @@ class HeapArrangement{
                     par = j/2;
                 }
             }
-            cout<<"Insert More ?(1 for continue)\n";
-            cin>>ch;
-        }while(ch == 1);
     }
         int maxMarks(int total){
             int Max = array[1];
