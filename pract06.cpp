@@ -46,7 +46,7 @@ class graphTraversal{
     //     cout<<endl;
     // }
 
-    void DFS(int startvertex, int vertices){
+    void DFS(int startvertex, int n){
         stack <int> s;
         s.push(startvertex);
         visiteddfs[startvertex] = true;
