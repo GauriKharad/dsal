@@ -51,19 +51,17 @@ class HeapArrangement{
         // not necessary to display it as heap you canjust print it also
         
         void displayheap(int total){
-            int i=1, space = 16;
-            int level = 0;
-            //cout<<endl;
+            int i=1, space = 6;
+            
             while(i <= total){
-                if(i == (1 << level)){
+               if(i==1 || i==2 || i==4 || i==8 || i==16)
+                    {
                     cout<<endl<<endl;
-                    for( int j = 0 ; j < space ; j++)cout<<"  ";
-                        space -= 2;
-                        level++;
-                }
-                    cout<<array[i];
-                    i++;
-                }
+                    for(int j=0;j<space;j++)
+                         cout<<" ";
+                    space-=2;   
+                    }
+                   cout<<" "<<array[i];i++;
                 cout<<endl<<endl;
             }
 };
