@@ -98,6 +98,29 @@ class Hashing {
             }
         }
         
+        int search(long long key){
+            
+            for(int i = 0; i < 10; i++){
+                if(HashTable[i] != nullptr && HashTable[i] -> data == key){
+                    return i;
+                }
+                
+            }
+            return -1;
+        }
+
+        void searchvalue(){
+            long long key;
+            cout<<"Enter the Telephone No. To Search.\n";
+            cin>>key;
+            int flag = search(key);
+            if(flag == -1){
+                cout<<"OOPS not present in the table.\n";
+            }
+            else{
+                cout<<"YEAhh found at index "<<flag<<".\n";
+            }
+        }
 };
 
 int main(){
@@ -110,7 +133,8 @@ int main(){
         cout<<"1.Insert\n";
         cout<<"2.Delete\n";
         cout<<"3.Display\n";
-        cout<<"4.Exit\n";
+        cout<<"4.Search.\n";
+        cout<<"5.Exit\n";
         cin>>choice;
         
         switch(choice){
@@ -129,14 +153,17 @@ int main(){
             case 3 : cout<<"Displaying ...\n";
                      h.display();
                      break;
+
+            case 4 : h.searchvalue();
+                     break;
                      
-            case 4 : cout<<"Exiting... !!\n";
+            case 5 : cout<<"Exiting... !!\n";
                      break;
                      
             default : cout<<"Invalid Choice !\n"; 
             
         }
-    }while(choice != 4);
+    }while(choice != 5);
     
     return 0;
 }
